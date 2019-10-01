@@ -1,1 +1,26 @@
-Test
+<div class="container">
+  <div class="row">
+    <div class="col-12 mt-5 mb-2">
+      <%= link_to "New Task", new_task_path, class: "btn btn-lg btn-secondary" %>
+    </div>
+    <div class="col-12">
+      <table class="table table-sm table-borderless table-responsive-sm">
+        <% tasks.each do |task| %>
+          <tr class="border">
+            <td>
+              <%= task.name %>
+            </td>
+            <td>
+              <%= task.list_items.count %> List Items
+            </td>
+            <td>
+              <%= link_to "Edit", edit_task_path(task), class: "btn btn-sm btn-primary" %>
+              <%= link_to "Show", task_path(task), class: "btn btn-sm btn-success" %>
+              <%= link_to "Delete", task_path(task), method: :delete, class: "btn btn-sm btn-danger" %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
