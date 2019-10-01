@@ -51,7 +51,7 @@ class TasksController < ApplicationController
     task = current_user.tasks.find_by(id: params[:id])
 
     if !task.destroy
-      flash[:error] = "There was an error destroying your task. Please try again."
+      flash[:error] = "There was an error destroying your task. Please try again"
     end
 
     redirect_to tasks_path

@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 mt-5 mb-5">
+      <h1>
+        Edit Task
+      </h1>
+    </div>
+    <div class="col-12">
+      <%= form_for task do |f| %>
+        <div class="form-group">
+          <%= f.text_field :name, placeholder: "Task Name", class: "w-100" %>
+        </div>
+        <%= f.submit "Update", class: "btn btn-lg btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>

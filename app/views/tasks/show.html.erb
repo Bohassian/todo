@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 mt-5 mb-5">
+      <h1>
+        <%= task.name %>
+      </h1>
+    </div>
+    <div class="col-12">
+      <h3>
+        List Items
+      </h3>
+      <div class="col-12 mt-3 mb-2">
+        <%= link_to "New List Item", new_task_list_item_path(task), class: "btn btn-lg btn-secondary" %>
+      </div>
+      <div class="col-12">
+        <table class="table table-sm table-borderless table-responsive-sm">
+          <thead>
+            <tr>
+              <th scope="col">Description</th>
+              <th scope="col">Priority</th>
+              <th scope="col">Complete?</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <% task.list_items.each do |list_item| %>
+            <tr class="border">
+              <td>
+                <%= list_item.description %>
+              </td>
+              <td>
+                <%= list_item.priority %>
+              </td>
+              <td>
+                <%= list_item.complete ? "Yes" : "No" %>
+              </td>
+              <td>
+                <%= link_to "Edit", edit_task_list_item_path(task, list_item), class: "btn btn-sm btn-primary" %>
+                <%= link_to "Delete", task_list_item_path(task, list_item), method: :delete, class: "btn btn-sm btn-danger" %>
+              </td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

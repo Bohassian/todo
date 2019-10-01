@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 mt-5 mb-5">
+      <h1>
+        Edit List Item
+      </h1>
+    </div>
+    <div class="col-12">
+      <%= form_for list_item, url: task_list_item_path(list_item.task, list_item), method: :patch do |f| %>
+        <div class="form-group">
+          <%= f.text_field :description, placeholder: "Description", class: "w-100" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :priority, placeholder: "Priority (Integer Greater Than Zero)", class: "w-100" %>
+        </div>
+        <div class="form-check">
+          <%= f.check_box :complete, class: "form-check-input", id: "completeCheck" %>
+          <label class="form-check-label" for="completeCheck">
+            Complete?
+          </label>
+        </div>
+        <%= f.submit "Update", class: "btn btn-lg btn-primary mt-3" %>
+      <% end %>
+    </div>
+  </div>
+</div>
